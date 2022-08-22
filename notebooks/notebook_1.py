@@ -3,7 +3,7 @@
 # MAGIC #Notebook 1
 
 # COMMAND ----------
-from core import utilities
+from project.core import utilities
 
 default_name = "unknown"
 

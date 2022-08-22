@@ -1,12 +1,12 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC ## Unit Test Demo
-# MAGIC
+# MAGIC 
 # MAGIC Runs `notebook_2` in cell to share `generate_data` function with this notebook
 
 # COMMAND ----------
 
-# MAGIC %run ../notebooks/notebook_2
+# MAGIC %run ../../notebooks/notebook_2
 
 # COMMAND ----------
 
@@ -25,7 +25,7 @@ class TestAllFixture(NutterFixture):
 
     def run_first(self):
         self.first = dbutils.notebook.run(
-            "../notebooks/notebook_1", default_timeout, {"name": "world"}
+            "../../notebooks/notebook_1", default_timeout, {"name": "world"}
         )
 
     def assertion_first(self):

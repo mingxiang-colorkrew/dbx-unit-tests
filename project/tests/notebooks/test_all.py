@@ -1,7 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC ## Unit Test Demo
-# MAGIC 
+# MAGIC
 # MAGIC Runs `notebook_2` in cell to share `generate_data` function with this notebook
 
 # COMMAND ----------
@@ -20,7 +20,7 @@ class TestAllFixture(NutterFixture):
         self.first = ""
         self.second = ""
         self.table_name = "test_table"
-        
+
         NutterFixture.__init__(self)
 
     def run_first(self):
@@ -34,7 +34,7 @@ class TestAllFixture(NutterFixture):
     def run_second(self):
         # notebook is run from above cell, if running it programmatically will do it like:
         # self.second = dbutils.notebook.run("../notebook_2", default_timeout)
-        
+
         # function from notebook_2
         generate_data()
 

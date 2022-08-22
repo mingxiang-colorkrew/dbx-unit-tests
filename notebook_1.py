@@ -11,8 +11,8 @@ dbutils.widgets.text("name", default_name, "Enter user name")
 user_name = dbutils.widgets.get("name")
 
 if user_name == "unknown":
-  greeting = "ERROR"
+    greeting = "ERROR"
 else:
-  greeting = f"Hello {user_name}"
+    greeting = f"Hello {user_name}"
 
 dbutils.notebook.exit(greeting)

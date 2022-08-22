@@ -1,14 +1,26 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC ## Unit Test Demo
+# MAGIC 
+# MAGIC Runs `notebook_2` in cell to share `generate_data` function with this notebook
+
+# COMMAND ----------
+
+# MAGIC %run ../notebook_2
+
+# COMMAND ----------
+
 from runtime.nutterfixture import NutterFixture, tag
 
 default_timeout = 600
 
 
-class TestRunningNotebook(NutterFixture):
+class TestAllFixture(NutterFixture):
     def __init__(self):
         self.first = ""
         self.second = ""
         self.table_name = "test_table"
+        
         NutterFixture.__init__(self)
 
     def run_first(self):
@@ -20,7 +32,9 @@ class TestRunningNotebook(NutterFixture):
         assert self.first == "Hello world"
 
     def run_second(self):
-        self.second = dbutils.notebook.run("../notebook_2", default_timeout)
+        # notebook is run from above cell, if running it programmatically will do it like:
+        # self.second = dbutils.notebook.run("../notebook_2", default_timeout)
+        
         # function from notebook_2
         generate_data()
 
@@ -30,7 +44,7 @@ class TestRunningNotebook(NutterFixture):
         assert first_row[0] == 10
 
     def after_second(self):
-        spark.sql(f"DROP TABLE {self.test_table}")
+        spark.sql(f"DROP TABLE {self.table_name}")
 
 
 # COMMAND ----------

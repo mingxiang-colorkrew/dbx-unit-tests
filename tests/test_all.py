@@ -6,7 +6,7 @@
 
 # COMMAND ----------
 
-# MAGIC %run ../notebook_2
+# MAGIC %run ../notebooks/notebook_2
 
 # COMMAND ----------
 
@@ -25,7 +25,7 @@ class TestAllFixture(NutterFixture):
 
     def run_first(self):
         self.first = dbutils.notebook.run(
-            "../notebook_1", default_timeout, {"name": "world"}
+            "../notebooks/notebook_1", default_timeout, {"name": "world"}
         )
 
     def assertion_first(self):

@@ -3,6 +3,7 @@
 # MAGIC #Notebook 1
 
 # COMMAND ----------
+from core import utilities
 
 default_name = "unknown"
 
@@ -13,6 +14,6 @@ user_name = dbutils.widgets.get("name")
 if user_name == "unknown":
     greeting = "ERROR"
 else:
-    greeting = f"Hello {user_name}"
+    greeting = utilities.hello(user_name)
 
 dbutils.notebook.exit(greeting)

@@ -29,10 +29,13 @@ You can use Nutter CLI to list and run tests
 
 ``` bash
 # list tests
-nutter run /Repos/<repo-namespace>/dbx-unit-tests/tests
+nutter list /Repos/<namespace>/dbx-unit-tests/project/tests/ --recursive
 
-# execute test
-nutter run /Repos/<repo-namespace>/dbx-unit-tests/tests/test_all <cluster-id>
+# execute notebook tests
+nutter list /Repos/<namespace>/dbx-unit-tests/project/tests/ --cluster_id <cluster-id> --recursive
+
+# execute python unit tests
+python -m unittest project/tests/core/**/*.py
 ```
 
 You can format all code in the repo using

@@ -1,4 +1,9 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC #Notebook 1
+
+# COMMAND ----------
+
 default_name = "unknown"
 
 # use notebook param

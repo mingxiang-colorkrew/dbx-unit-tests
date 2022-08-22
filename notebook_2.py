@@ -1,4 +1,9 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC # Notebook 2
+
+# COMMAND ----------
+
 from pyspark.sql import SparkSession
 
 

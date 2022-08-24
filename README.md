@@ -7,7 +7,6 @@
 
 ## Setup Local Dependencies
 
-
 ```bash
 # install poetry CLI tool to manage package dependencies
 curl -sSL https://install.python-poetry.org | python3 -
@@ -32,11 +31,14 @@ You can use Nutter CLI to list and run tests
 nutter list /Repos/<namespace>/dbx-unit-tests/project/tests/ --recursive
 
 # execute notebook tests
-nutter list /Repos/<namespace>/dbx-unit-tests/project/tests/ --cluster_id <cluster-id> --recursive
+nutter run /Repos/<namespace>/dbx-unit-tests/project/tests/ --cluster_id <cluster-id> --recursive
 
 # execute python unit tests
 python -m unittest project/tests/core/**/*.py
 ```
+
+When creating a new cluster, you need to follow the following instructions to install `nutter` on your cluster
+https://github.com/microsoft/nutter#cluster-installation
 
 You can format all code in the repo using
 

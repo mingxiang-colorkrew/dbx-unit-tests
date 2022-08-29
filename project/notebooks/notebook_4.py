@@ -1,9 +1,6 @@
 # Databricks notebook source
 from pyspark.sql.functions import udf
 from pyspark.sql.types import StringType
-
-from pyspark.sql.functions import udf
-from pyspark.sql.types import StringType
 from project.core import masking
 
 mask_udf = udf(masking.mask, StringType())

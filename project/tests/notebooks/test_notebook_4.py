@@ -4,18 +4,6 @@ from pyspark.sql.types import StructType,StructField, StringType, IntegerType
 
 default_timeout = 600
 
-def create_tables(source_table: str, dest_table: str):
-    spark.sql(
-        (
-            f"CREATE TABLE {source_table} ( "
-            f"id INT NOT NULL, "
-            f"name STRING "
-            f") "
-            f"USING DELTA "
-        )
-    )
-    
-
 class TestNotebook4Fixture(NutterFixture):
     def __init__(self):
         self.source_table = "default.notebook_4_source"
@@ -24,23 +12,15 @@ class TestNotebook4Fixture(NutterFixture):
         NutterFixture.__init__(self)
         
     def before_mask(self):
-        create_tables(self.source_table, self.dest_table)
-
         data = [
             (1, "James"),
             (2, "John"),
             (3, "Jane"),
         ]
         
-        schema = StructType([
-            StructField("id", IntegerType(), nullable=False),
-            StructField("name", StringType(), nullable=False)
-        ])
+        schema = ['id', 'name']
         
-        df = spark.createDataFrame(
-            data=data,
-            schema=schema
-        )
+        df = spark.createDataFrame(data=data,schema=schema)
         
         (
             df.write
